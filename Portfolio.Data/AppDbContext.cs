@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Portfolio.Data.Models;
 
 namespace Portfolio.Data;
@@ -21,7 +20,7 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        
+
         // Remove cascading deletes.
         foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
         {
