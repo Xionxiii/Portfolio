@@ -28,6 +28,7 @@ export interface ProjectsViewModel extends $models.Projects {
   projectId: number | null;
   name: string | null;
   description: string | null;
+  projectType: string | null;
 }
 export class ProjectsViewModel extends ViewModel<$models.Projects, $apiClients.ProjectsApiClient, number> implements $models.Projects  {
   

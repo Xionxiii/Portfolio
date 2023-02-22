@@ -8,5 +8,6 @@ public class Projects
 
     public string? Description { get; set; }
 
+    public string? ProjectType { get; set; }
 }
 

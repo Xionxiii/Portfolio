@@ -15,6 +15,7 @@ namespace Portfolio.Web.Models
         private int? _ProjectId;
         private string _Name;
         private string _Description;
+        private string _ProjectType;
 
         public int? ProjectId
         {
@@ -31,6 +32,11 @@ namespace Portfolio.Web.Models
             get => _Description;
             set { _Description = value; Changed(nameof(Description)); }
         }
+        public string ProjectType
+        {
+            get => _ProjectType;
+            set { _ProjectType = value; Changed(nameof(ProjectType)); }
+        }
 
         /// <summary>
         /// Map from the domain object to the properties of the current DTO instance.
@@ -43,6 +49,7 @@ namespace Portfolio.Web.Models
             this.ProjectId = obj.ProjectId;
             this.Name = obj.Name;
             this.Description = obj.Description;
+            this.ProjectType = obj.ProjectType;
         }
 
         /// <summary>
@@ -57,6 +64,7 @@ namespace Portfolio.Web.Models
             if (ShouldMapTo(nameof(ProjectId))) entity.ProjectId = (ProjectId ?? entity.ProjectId);
             if (ShouldMapTo(nameof(Name))) entity.Name = Name;
             if (ShouldMapTo(nameof(Description))) entity.Description = Description;
+            if (ShouldMapTo(nameof(ProjectType))) entity.ProjectType = ProjectType;
         }
 
         /// <summary>

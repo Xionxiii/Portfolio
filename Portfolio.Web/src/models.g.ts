@@ -29,6 +29,7 @@ export interface Projects extends Model<typeof metadata.Projects> {
   projectId: number | null
   name: string | null
   description: string | null
+  projectType: string | null
 }
 export class Projects {
   

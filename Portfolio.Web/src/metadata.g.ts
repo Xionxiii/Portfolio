@@ -70,6 +70,12 @@ export const Projects = domain.types.Projects = {
       type: "string",
       role: "value",
     },
+    projectType: {
+      name: "projectType",
+      displayName: "Project Type",
+      type: "string",
+      role: "value",
+    },
   },
   methods: {
   },
