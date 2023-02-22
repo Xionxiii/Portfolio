@@ -25,7 +25,7 @@
     <v-app-bar app color="orange" dark dense clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>
-        <router-link to="/" class="white--text" style="text-decoration: none" >
+        <router-link to="/" class="white--text" style="text-decoration: none">
           Ryan Golden's Portfolio
         </router-link>
       </v-toolbar-title>

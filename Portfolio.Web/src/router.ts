@@ -19,10 +19,10 @@ export default new Router({
       props: { title: "Coalesce Example" },
     },
     {
-      path: '/projects',
-      name: 'Projects Page',
-      component: () => import('./views/Projects.vue'),
-      props: route => ({ id: +route.params.id }),
+      path: "/projects",
+      name: "Projects Page",
+      component: () => import("./views/Projects.vue"),
+      props: (route) => ({ id: +route.params.id }),
     },
 
     // Coalesce admin routes

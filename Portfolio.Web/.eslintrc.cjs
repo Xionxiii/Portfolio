@@ -23,8 +23,10 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "vue/no-v-text-v-html-on-component": "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-console": "off",
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
+    "vue/multi-word-component-names": 0,
   },
   ignorePatterns: ["/**/*.g.ts"],
 };
