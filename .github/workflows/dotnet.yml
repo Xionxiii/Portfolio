@@ -1,0 +1,89 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  merge_group:
+    branches: -checks_requested
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        global-json-file: global.json
+
+    - name: Get Build Information
+      run: |
+          pwd
+          dotnet --info
+          dotnet --version
+          
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: 'npm'
+        cache-dependency-path: ./Portfolio.Web/package-lock.json
+
+    - name: Restore and Install npm Packages
+      run: |
+        cd ./Portfolio.Web
+        npm ci
+        npm run build
+      shell: pwsh
+          
+    - name: Build and Restore with dotnet
+      run: dotnet build --configuration Release
+
+    - name: Ensure Coalesce has run
+      run: |
+          cd ./Portfolio.Web
+          echo 'Running Coalesce'
+          dotnet -d coalesce
+          if ($LASTEXITCODE -ne 0) { throw "`dotnet coalesce` exited with code $LASTEXITCODE" }
+          echo 'Adding Changed Files'
+          git add .
+          echo 'Checking Diff'
+          git diff HEAD --cached --exit-code
+      shell: pwsh
+        
+    - name: Run .NET Tests
+      run: dotnet test --no-build --configuration Release
+
+    - name: Run TS Vite Tests
+      working-directory: ./Portfolio.Web
+      run: npm run test
+
+    - name: Ensure linter has run
+      run: |
+            cd ./Portfolio.Web
+            npm run lint
+      shell: pwsh
+
+    - name: Run dotnet format checks
+      run: dotnet format --verify-no-changes --verbosity diagnostic
+      shell: pwsh
+
+    - name: dotnet publish
+      if: github.event_name != 'pull_request' && github.event_name != 'merge_group'
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Portfolio
+
+  automerge:
+    needs: [build-and-test]
+    runs-on: ubuntu-latest
+    
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v3.6.0  
+        with:
+          approve-only: true
