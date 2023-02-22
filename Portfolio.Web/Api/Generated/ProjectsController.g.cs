@@ -20,54 +20,54 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Web.Api
 {
-    [Route("api/ApplicationUser")]
+    [Route("api/Projects")]
     [Authorize]
     [ServiceFilter(typeof(IApiActionFilter))]
-    public partial class ApplicationUserController
-        : BaseApiController<Portfolio.Data.Models.ApplicationUser, ApplicationUserDtoGen, Portfolio.Data.AppDbContext>
+    public partial class ProjectsController
+        : BaseApiController<Portfolio.Data.Models.Projects, ProjectsDtoGen, Portfolio.Data.AppDbContext>
     {
-        public ApplicationUserController(Portfolio.Data.AppDbContext db) : base(db)
+        public ProjectsController(Portfolio.Data.AppDbContext db) : base(db)
         {
-            GeneratedForClassViewModel = ReflectionRepository.Global.GetClassViewModel<Portfolio.Data.Models.ApplicationUser>();
+            GeneratedForClassViewModel = ReflectionRepository.Global.GetClassViewModel<Portfolio.Data.Models.Projects>();
         }
 
         [HttpGet("get/{id}")]
         [Authorize]
-        public virtual Task<ItemResult<ApplicationUserDtoGen>> Get(
+        public virtual Task<ItemResult<ProjectsDtoGen>> Get(
             int id,
             DataSourceParameters parameters,
-            IDataSource<Portfolio.Data.Models.ApplicationUser> dataSource)
+            IDataSource<Portfolio.Data.Models.Projects> dataSource)
             => GetImplementation(id, parameters, dataSource);
 
         [HttpGet("list")]
         [Authorize]
-        public virtual Task<ListResult<ApplicationUserDtoGen>> List(
+        public virtual Task<ListResult<ProjectsDtoGen>> List(
             ListParameters parameters,
-            IDataSource<Portfolio.Data.Models.ApplicationUser> dataSource)
+            IDataSource<Portfolio.Data.Models.Projects> dataSource)
             => ListImplementation(parameters, dataSource);
 
         [HttpGet("count")]
         [Authorize]
         public virtual Task<ItemResult<int>> Count(
             FilterParameters parameters,
-            IDataSource<Portfolio.Data.Models.ApplicationUser> dataSource)
+            IDataSource<Portfolio.Data.Models.Projects> dataSource)
             => CountImplementation(parameters, dataSource);
 
         [HttpPost("save")]
         [Authorize]
-        public virtual Task<ItemResult<ApplicationUserDtoGen>> Save(
-            [FromForm] ApplicationUserDtoGen dto,
+        public virtual Task<ItemResult<ProjectsDtoGen>> Save(
+            [FromForm] ProjectsDtoGen dto,
             [FromQuery] DataSourceParameters parameters,
-            IDataSource<Portfolio.Data.Models.ApplicationUser> dataSource,
-            IBehaviors<Portfolio.Data.Models.ApplicationUser> behaviors)
+            IDataSource<Portfolio.Data.Models.Projects> dataSource,
+            IBehaviors<Portfolio.Data.Models.Projects> behaviors)
             => SaveImplementation(dto, parameters, dataSource, behaviors);
 
         [HttpPost("delete/{id}")]
         [Authorize]
-        public virtual Task<ItemResult<ApplicationUserDtoGen>> Delete(
+        public virtual Task<ItemResult<ProjectsDtoGen>> Delete(
             int id,
-            IBehaviors<Portfolio.Data.Models.ApplicationUser> behaviors,
-            IDataSource<Portfolio.Data.Models.ApplicationUser> dataSource)
+            IBehaviors<Portfolio.Data.Models.Projects> behaviors,
+            IDataSource<Portfolio.Data.Models.Projects> dataSource)
             => DeleteImplementation(id, new DataSourceParameters(), dataSource, behaviors);
     }
 }

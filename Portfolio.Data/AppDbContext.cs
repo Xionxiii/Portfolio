@@ -7,6 +7,8 @@ namespace Portfolio.Data;
 public class AppDbContext : DbContext
 {
     public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
+    public DbSet<Projects> Projects => Set<Projects>();
+
 
     public AppDbContext()
     {

@@ -28,6 +28,48 @@ export const ApplicationUser = domain.types.ApplicationUser = {
       type: "string",
       role: "value",
     },
+    birthDate: {
+      name: "birthDate",
+      displayName: "Birth Date",
+      type: "date",
+      dateKind: "datetime",
+      noOffset: true,
+      role: "value",
+    },
+  },
+  methods: {
+  },
+  dataSources: {
+  },
+}
+export const Projects = domain.types.Projects = {
+  name: "Projects",
+  displayName: "Projects",
+  get displayProp() { return this.props.name }, 
+  type: "model",
+  controllerRoute: "Projects",
+  get keyProp() { return this.props.projectId }, 
+  behaviorFlags: 7,
+  props: {
+    projectId: {
+      name: "projectId",
+      displayName: "Project Id",
+      type: "number",
+      role: "primaryKey",
+      hidden: 3,
+    },
+    name: {
+      name: "name",
+      displayName: "Name",
+      type: "string",
+      role: "value",
+    },
+    description: {
+      name: "description",
+      displayName: "Description",
+      type: "string",
+      role: "value",
+    },
   },
   methods: {
   },
@@ -40,6 +82,7 @@ interface AppDomain extends Domain {
   }
   types: {
     ApplicationUser: typeof ApplicationUser
+    Projects: typeof Projects
   }
   services: {
   }
