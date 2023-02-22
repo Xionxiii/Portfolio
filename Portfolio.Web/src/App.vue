@@ -11,22 +11,22 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link to="/coalesce-example">
+        <v-list-item link to="/Projects">
           <v-list-item-action>
             <v-icon>fas fa-palette</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Coalesce Example</v-list-item-title>
+            <v-list-item-title>Projects</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="primary" dark dense clipped-left>
+    <v-app-bar app color="orange" dark dense clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>
         <router-link to="/" class="white--text" style="text-decoration: none">
-          Coalesce Vue Template
+          Ryan Golden's Portfolio
         </router-link>
       </v-toolbar-title>
     </v-app-bar>
@@ -41,17 +41,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
-import { useRoute } from "vue-router/composables";
+import { ref, watch } from "vue";
+//import { useRoute } from "vue-router/composables";
 
-const route = useRoute();
+//const route = useRoute();
 const drawer = ref<boolean | null>(null);
 const routeComponent = ref<any>();
 
+/*
 const routeMeta = computed(() => {
   if (!route || route.name === null) return null;
   return route.meta;
-});
+});*/
 
 const baseTitle = document.title;
 watch(

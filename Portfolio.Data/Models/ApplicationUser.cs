@@ -1,14 +1,12 @@
 namespace Portfolio.Data.Models;
 
-#nullable disable
-
 public class ApplicationUser
 {
     public int ApplicationUserId { get; set; }
 
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
-#nullable restore
+    public DateTime? BirthDate { get; set; }
 
 
 }

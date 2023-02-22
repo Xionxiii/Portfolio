@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="IntelliTect.Coalesce.Vue" Version="$(CoalesceVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup>

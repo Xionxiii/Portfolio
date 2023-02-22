@@ -8,3 +8,8 @@ export class ApplicationUserApiClient extends ModelApiClient<$models.Application
 }
 
 
+export class ProjectsApiClient extends ModelApiClient<$models.Projects> {
+  constructor() { super($metadata.Projects) }
+}
+
+

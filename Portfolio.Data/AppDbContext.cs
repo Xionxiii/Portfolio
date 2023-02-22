@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Portfolio.Data.Models;
 
 namespace Portfolio.Data;
@@ -7,6 +6,8 @@ namespace Portfolio.Data;
 public class AppDbContext : DbContext
 {
     public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
+    public DbSet<Projects> Projects => Set<Projects>();
+
 
     public AppDbContext()
     {

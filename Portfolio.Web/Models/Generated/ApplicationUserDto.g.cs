@@ -14,6 +14,7 @@ namespace Portfolio.Web.Models
 
         private int? _ApplicationUserId;
         private string _Name;
+        private System.DateTime? _BirthDate;
 
         public int? ApplicationUserId
         {
@@ -24,6 +25,11 @@ namespace Portfolio.Web.Models
         {
             get => _Name;
             set { _Name = value; Changed(nameof(Name)); }
+        }
+        public System.DateTime? BirthDate
+        {
+            get => _BirthDate;
+            set { _BirthDate = value; Changed(nameof(BirthDate)); }
         }
 
         /// <summary>
@@ -36,6 +42,7 @@ namespace Portfolio.Web.Models
 
             this.ApplicationUserId = obj.ApplicationUserId;
             this.Name = obj.Name;
+            this.BirthDate = obj.BirthDate;
         }
 
         /// <summary>
@@ -49,6 +56,7 @@ namespace Portfolio.Web.Models
 
             if (ShouldMapTo(nameof(ApplicationUserId))) entity.ApplicationUserId = (ApplicationUserId ?? entity.ApplicationUserId);
             if (ShouldMapTo(nameof(Name))) entity.Name = Name;
+            if (ShouldMapTo(nameof(BirthDate))) entity.BirthDate = BirthDate;
         }
 
         /// <summary>

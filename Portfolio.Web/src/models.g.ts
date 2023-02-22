@@ -4,6 +4,7 @@ import { Model, DataSource, convertToModel, mapToModel } from 'coalesce-vue/lib/
 export interface ApplicationUser extends Model<typeof metadata.ApplicationUser> {
   applicationUserId: number | null
   name: string | null
+  birthDate: Date | null
 }
 export class ApplicationUser {
   
@@ -20,6 +21,31 @@ export class ApplicationUser {
   /** Instantiate a new ApplicationUser, optionally basing it on the given data. */
   constructor(data?: Partial<ApplicationUser> | {[k: string]: any}) {
       Object.assign(this, ApplicationUser.map(data || {}));
+  }
+}
+
+
+export interface Projects extends Model<typeof metadata.Projects> {
+  projectId: number | null
+  name: string | null
+  description: string | null
+  projectType: string | null
+}
+export class Projects {
+  
+  /** Mutates the input object and its descendents into a valid Projects implementation. */
+  static convert(data?: Partial<Projects>): Projects {
+    return convertToModel(data || {}, metadata.Projects) 
+  }
+  
+  /** Maps the input object and its descendents to a new, valid Projects implementation. */
+  static map(data?: Partial<Projects>): Projects {
+    return mapToModel(data || {}, metadata.Projects) 
+  }
+  
+  /** Instantiate a new Projects, optionally basing it on the given data. */
+  constructor(data?: Partial<Projects> | {[k: string]: any}) {
+      Object.assign(this, Projects.map(data || {}));
   }
 }
 
