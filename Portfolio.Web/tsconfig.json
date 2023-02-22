@@ -15,7 +15,7 @@
     "noEmitOnError": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["node", "vitest/globals", "vuetify2-component-types", "jest"],
+    "types": ["node", "vitest/globals", "vuetify2-component-types"],
     "paths": {
       "@/*": ["src/*"],
       "vuetify/lib": ["node_modules/vuetify/types/lib"]

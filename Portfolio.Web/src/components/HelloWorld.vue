@@ -166,7 +166,7 @@ import $metadata from "@/metadata.g";
 })
 export default class HelloWorld extends Vue {
   @Prop({ required: true })
-  private msg!: string | null;
+  public msg!: string | null;
 
   adminTypes = Object.values($metadata.types).filter((t) => t.type == "model");
 }
