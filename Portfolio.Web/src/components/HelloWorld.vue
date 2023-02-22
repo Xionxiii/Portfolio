@@ -156,12 +156,20 @@
   </v-container>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+
 import $metadata from "@/metadata.g";
 
-const adminTypes = Object.values($metadata.types).filter(
-  (t) => t.type == "model"
-);
+@Component({
+  components: {},
+})
+export default class HelloWorld extends Vue {
+  @Prop({ required: true })
+  private msg!: string | null;
+
+  adminTypes = Object.values($metadata.types).filter((t) => t.type == "model");
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
