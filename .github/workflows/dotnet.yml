@@ -75,15 +75,15 @@ jobs:
       if: github.event_name != 'pull_request' && github.event_name != 'merge_group'
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Portfolio
 
-automerge:
-  needs: [build-and-test]
-  runs-on: ubuntu-latest
+  automerge:
+    needs: [build-and-test]
+    runs-on: ubuntu-latest
     
-  permissions:
+    permissions:
       pull-requests: write
       contents: write
 
-  steps:
+    steps:
       - uses: fastify/github-action-merge-dependabot@v3.6.0  
         with:
           approve-only: true
