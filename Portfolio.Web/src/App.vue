@@ -41,17 +41,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
-import { useRoute } from "vue-router/composables";
+import { ref, watch } from "vue";
+//import { useRoute } from "vue-router/composables";
 
-const route = useRoute();
+//const route = useRoute();
 const drawer = ref<boolean | null>(null);
 const routeComponent = ref<any>();
 
+/*
 const routeMeta = computed(() => {
   if (!route || route.name === null) return null;
   return route.meta;
-});
+});*/
 
 const baseTitle = document.title;
 watch(

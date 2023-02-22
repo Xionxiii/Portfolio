@@ -159,7 +159,6 @@
 <script setup lang="ts">
 import $metadata from "@/metadata.g";
 
-const props = defineProps<{ msg: string | null }>();
 const adminTypes = Object.values($metadata.types).filter(
   (t) => t.type == "model"
 );
