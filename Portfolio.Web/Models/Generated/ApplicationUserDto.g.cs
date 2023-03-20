@@ -15,6 +15,8 @@ namespace Portfolio.Web.Models
         private int? _ApplicationUserId;
         private string _Name;
         private System.DateTime? _BirthDate;
+        private bool? _IsAdmin;
+        private string _Email;
 
         public int? ApplicationUserId
         {
@@ -31,6 +33,16 @@ namespace Portfolio.Web.Models
             get => _BirthDate;
             set { _BirthDate = value; Changed(nameof(BirthDate)); }
         }
+        public bool? IsAdmin
+        {
+            get => _IsAdmin;
+            set { _IsAdmin = value; Changed(nameof(IsAdmin)); }
+        }
+        public string Email
+        {
+            get => _Email;
+            set { _Email = value; Changed(nameof(Email)); }
+        }
 
         /// <summary>
         /// Map from the domain object to the properties of the current DTO instance.
@@ -43,6 +55,8 @@ namespace Portfolio.Web.Models
             this.ApplicationUserId = obj.ApplicationUserId;
             this.Name = obj.Name;
             this.BirthDate = obj.BirthDate;
+            this.IsAdmin = obj.IsAdmin;
+            this.Email = obj.Email;
         }
 
         /// <summary>
@@ -57,6 +71,8 @@ namespace Portfolio.Web.Models
             if (ShouldMapTo(nameof(ApplicationUserId))) entity.ApplicationUserId = (ApplicationUserId ?? entity.ApplicationUserId);
             if (ShouldMapTo(nameof(Name))) entity.Name = Name;
             if (ShouldMapTo(nameof(BirthDate))) entity.BirthDate = BirthDate;
+            if (ShouldMapTo(nameof(IsAdmin))) entity.IsAdmin = (IsAdmin ?? entity.IsAdmin);
+            if (ShouldMapTo(nameof(Email))) entity.Email = Email;
         }
 
         /// <summary>

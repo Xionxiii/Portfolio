@@ -36,6 +36,18 @@ export const ApplicationUser = domain.types.ApplicationUser = {
       noOffset: true,
       role: "value",
     },
+    isAdmin: {
+      name: "isAdmin",
+      displayName: "Is Admin",
+      type: "boolean",
+      role: "value",
+    },
+    email: {
+      name: "email",
+      displayName: "Email",
+      type: "string",
+      role: "value",
+    },
   },
   methods: {
   },

@@ -5,6 +5,8 @@ export interface ApplicationUser extends Model<typeof metadata.ApplicationUser> 
   applicationUserId: number | null
   name: string | null
   birthDate: Date | null
+  isAdmin: boolean | null
+  email: string | null
 }
 export class ApplicationUser {
   

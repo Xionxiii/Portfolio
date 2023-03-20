@@ -8,5 +8,9 @@ public class ApplicationUser
 
     public DateTime? BirthDate { get; set; }
 
+    public bool IsAdmin { get; set; } = false;
+
+    public string? Email { get; set; }
+
 
 }

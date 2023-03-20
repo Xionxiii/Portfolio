@@ -7,6 +7,8 @@ export interface ApplicationUserViewModel extends $models.ApplicationUser {
   applicationUserId: number | null;
   name: string | null;
   birthDate: Date | null;
+  isAdmin: boolean | null;
+  email: string | null;
 }
 export class ApplicationUserViewModel extends ViewModel<$models.ApplicationUser, $apiClients.ApplicationUserApiClient, number> implements $models.ApplicationUser  {
   
